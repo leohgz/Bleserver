@@ -19,8 +19,6 @@ import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
 import java.util.List;
 
 public class ActividadServer extends Activity {
@@ -41,7 +39,9 @@ public class ActividadServer extends Activity {
         if (mBluetoothAdapter.isEnabled() && getPackageManager().hasSystemFeature(PackageManager.FEATURE_BLUETOOTH_LE)){
             //scanner = mBluetoothAdapter.getBluetoothLeScanner();
             //scanner.startScan(scanCallback);
-            mBluetoothAdapter.startLeScan(callback);
+            //mBluetoothAdapter.startLeScan(callback);
+            LeCallBack callBacka = new LeCallBack(mBluetoothAdapter,getApplicationContext());
+            mBluetoothAdapter.startLeScan(callBacka);
 
            /* mBluetoothAdapter.getBluetoothLeScanner().startScan(new ScanCallback() {
                 @Override
@@ -205,4 +205,3 @@ public class ActividadServer extends Activity {
         }
     };
 }
-
